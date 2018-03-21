@@ -1,0 +1,69 @@
+main {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center;
+  justify-content: space-around; */
+  border: 4px solid black;
+  height: 900px;
+}
+
+.about-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+}
+
+.question-box {
+  height: 50%;
+  width: 100%;
+  /* display: flex; */
+  /* text-align: center; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.question {
+  height: 50%;
+  width: 75%;
+}
+
+.form {
+  height: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* justify-content: space-around; */
+  align-items: flex-start;
+}
+
+.everything{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+
+.window-1 {
+ height: 70%;
+ width: 45%;
+ border: 1px solid black;
+}
+
+.window-2 {
+  height: 70%;
+  width: 45%;
+  border: 1px solid black;
+}
+
+
