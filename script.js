@@ -52,26 +52,60 @@ const questions = [
   }
 ]
 
-console.log(questions[0].question)
+// defining answer locations
+let firstChoice = document.querySelector('.first-choice')
+let secondChoice = document.querySelector('.second-choice')
+let thirdChoice = document.querySelector('.third-choice')
+let fourthChoice = document.querySelector('.fourth-choice')
 
+// should this be a function that shuffles the value of the question?
 // randomly selects object from array of questions
 let randoQuestion = questions[Math.floor(questions.length * Math.random())]
 
 // sets id that should be filled with random question text
-document.querySelector('#question').innerText = randoQuestion.question
+let questionBox = document.querySelector('#question')
+questionBox.innerText = randoQuestion.question
+
+// after submit event occurs
+function shuffleAgain () {
+  randoQuestion = questions[Math.floor(questions.length * Math.random())]
+  questionBox.innerText = randoQuestion.question
+  firstChoice.innerText = randoQuestion.options[0]
+  secondChoice.innerText = randoQuestion.options[1]
+  thirdChoice.innerText = randoQuestion.options[2]
+  fourthChoice.innerText = randoQuestion.options[3]
+}
 
 // set radio inputs to show answers to each question
 // would like to map this instead
-document.querySelector('.first-choice').innerText = randoQuestion.options[0]
-document.querySelector('.second-choice').innerText = randoQuestion.options[1]
-document.querySelector('.third-choice').innerText = randoQuestion.options[2]
-document.querySelector('.fourth-choice').innerText = randoQuestion.options[3]
+firstChoice.innerText = randoQuestion.options[0]
+secondChoice.innerText = randoQuestion.options[1]
+thirdChoice.innerText = randoQuestion.options[2]
+fourthChoice.innerText = randoQuestion.options[3]
+
+// variables for radio options
+let firstRadio = document.querySelector('#option1')
+let secondRadio = document.querySelector('#option2')
+let thirdRadio = document.querySelector('#option3')
+let fourthRadio = document.querySelector('#option4')
 
 // function passed into event listener
+// theoretically can handle entire exchange
+// may be wise to define more functions outside to call within the submit event
 function formEvent (e) {
   e.preventDefault()
-  console.log(document.getElementById('q-form'))
-  console.log(document.getElementById('test').innerText)
+  if (firstRadio.checked && randoQuestion.options[0] === randoQuestion.correctOption) {
+    console.log('test for 1')
+  } else if (secondRadio.checked && randoQuestion.options[1] === randoQuestion.correctOption) {
+    console.log('test for 2')
+  } else if (thirdRadio.checked && randoQuestion.options[2] === randoQuestion.correctOption) {
+    console.log('test for 3')
+  } else if (fourthRadio.checked && randoQuestion.options[3] === randoQuestion.correctOption) {
+    console.log('test for 4')
+  } else {
+    console.log(false)
+  }
+  shuffleAgain()
 }
 
 // variable to define button
