@@ -23,7 +23,7 @@ const questions = [
   {
     question: 'Famous for his intense use of chiaroscuro, or the dramatic use of light and shadow, this Italian from the Baroque period was well loved for his art, but notorious with authorities for drunken brawls. He had to flee Rome after killing a man in such a brawl. He often would use low status models, such as courtesans and the poor, to be used in depictions of religious idols.',
     options: ['Carpaccio', 'Giotto', 'Caravaggio', 'Leonardo da Vinci'],
-    correctOption: 'Camera Obscura'
+    correctOption: 'Caravaggio'
   },
   {
     question: 'This form of printmaking uses a plate of copper, zinc, or steel, coated in a waxy or acrylic ground. The artist could then use a needle to carve into the ground, exposing the metal underneath. An acidic solution was then used on the exposed metal to create a reusable plate to create prints. This printmaking form was especially easy to learn if the artist was already competent in drawing.',
@@ -67,7 +67,7 @@ let questionBox = document.querySelector('#question')
 questionBox.innerText = randoQuestion.question
 
 // after submit event occurs
-function shuffleAgain () {
+function shuffle () {
   randoQuestion = questions[Math.floor(questions.length * Math.random())]
   questionBox.innerText = randoQuestion.question
   firstChoice.innerText = randoQuestion.options[0]
@@ -92,6 +92,7 @@ let fourthRadio = document.querySelector('#option4')
 // function passed into event listener
 // theoretically can handle entire exchange
 // may be wise to define more functions outside to call within the submit event
+let total = 0
 function formEvent (e) {
   e.preventDefault()
   if (firstRadio.checked && randoQuestion.options[0] === randoQuestion.correctOption) {
@@ -105,7 +106,8 @@ function formEvent (e) {
   } else {
     console.log(false)
   }
-  shuffleAgain()
+  shuffle()
+  document.querySelector('input[name="radio"]:checked').checked = false
 }
 
 // variable to define button
@@ -113,3 +115,6 @@ let answerButton = document.querySelector('.answer1')
 
 // trigger click event
 answerButton.addEventListener('click', formEvent)
+
+// insert score into div
+let streak = document.querySelector('.streak').innerText = total.toString()
