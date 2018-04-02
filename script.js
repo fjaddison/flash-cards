@@ -1,3 +1,4 @@
+// would like to import this array as a module
 const questions = [
   {
     question: 'Dutchman Jan Vermeer is famously theorized for employing this technique of light manipulation in aiding his fantastically detailed imagery. The method utilizes a pinhole to display a reversed image of light into a darkened chamber.',
@@ -53,7 +54,28 @@ const questions = [
 
 console.log(questions[0].question)
 
-let randoQuestion = questions[Math.floor(questions.length * Math.random())].question
-console.log(randoQuestion)
+// randomly selects object from array of questions
+let randoQuestion = questions[Math.floor(questions.length * Math.random())]
 
-document.querySelector('#question').innerText = randoQuestion
+// sets id that should be filled with random question text
+document.querySelector('#question').innerText = randoQuestion.question
+
+// set radio inputs to show answers to each question
+// would like to map this instead
+document.querySelector('.first-choice').innerText = randoQuestion.options[0]
+document.querySelector('.second-choice').innerText = randoQuestion.options[1]
+document.querySelector('.third-choice').innerText = randoQuestion.options[2]
+document.querySelector('.fourth-choice').innerText = randoQuestion.options[3]
+
+// function passed into event listener
+function formEvent (e) {
+  e.preventDefault()
+  console.log(document.getElementById('q-form'))
+  console.log(document.getElementById('test').innerText)
+}
+
+// variable to define button
+let answerButton = document.querySelector('.answer1')
+
+// trigger click event
+answerButton.addEventListener('click', formEvent)
