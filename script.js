@@ -92,20 +92,27 @@ let fourthRadio = document.querySelector('#option4')
 // function passed into event listener
 // theoretically can handle entire exchange
 // may be wise to define more functions outside to call within the submit event
+// check for none of the radio inputs being checked
 let total = 0
 function formEvent (e) {
   e.preventDefault()
   if (firstRadio.checked && randoQuestion.options[0] === randoQuestion.correctOption) {
     console.log('test for 1')
+    total += 1
   } else if (secondRadio.checked && randoQuestion.options[1] === randoQuestion.correctOption) {
     console.log('test for 2')
+    total += 1
   } else if (thirdRadio.checked && randoQuestion.options[2] === randoQuestion.correctOption) {
     console.log('test for 3')
+    total += 1
   } else if (fourthRadio.checked && randoQuestion.options[3] === randoQuestion.correctOption) {
     console.log('test for 4')
+    total += 1
   } else {
     console.log(false)
+    total = 0
   }
+  document.querySelector('.streak').innerText = total.toString()
   shuffle()
   document.querySelector('input[name="radio"]:checked').checked = false
 }
@@ -117,4 +124,4 @@ let answerButton = document.querySelector('.answer1')
 answerButton.addEventListener('click', formEvent)
 
 // insert score into div
-let streak = document.querySelector('.streak').innerText = total.toString()
+document.querySelector('.streak').innerText = total.toString()

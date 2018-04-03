@@ -8,16 +8,10 @@ main {
 }
 
 .about-box {
+  padding-top: 125px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  align-content: center;
-}
-
-.score {
-  display: flex;
-  justify-content: center;
 }
 
 .question-box {
@@ -34,15 +28,6 @@ main {
 .question {
   height: 50%;
   width: 75%;
-}
-
-.form {
-  height: 50%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  /* justify-content: space-around; */
-  align-items: flex-start;
 }
 
 .everything{
@@ -66,4 +51,72 @@ main {
   border: 1px solid black;
 }
 
+/* checkmarks */
+
+label {
+  font-weight: 900;
+  cursor: pointer;
+}
+
+label:hover {
+  color: red;
+}
+
+label:active {
+  color: green;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+  background-color: coral;
+}
+
+circle:hover  input[type="radio"]:hover{
+  cursor: pointer;
+  visibility: visible;
+}
+
+input[type="radio"]:checked {
+  visibility: hidden; /*show the "YES" label only if the radio button is checked*/
+}
+
+.circle {
+  box-shadow: 1px 1px 1px 1px;
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  border-radius: 25px;
+  background: pink;
+}
+
+.radio-box {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+
+
+/* button styling */
+
+.answer1 {
+  height: 30px;
+  background-color: grey;
+  color: white;
+  width: 20%;
+  height: 18%;
+  cursor: pointer;
+  text-align: center;
+}
+
+.answer1:hover {
+  background-color: red;
+  padding: 1.5px;
+}
+
+.button-box {
+  display: flex;
+  justify-content: center;
+}
 
